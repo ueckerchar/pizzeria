@@ -1,0 +1,29 @@
+{% extends "MainApp/base.html" %}
+
+{% block content %}
+
+<p>Pizza: {{ pizza }} </p>
+<form method="POST">
+    <ul>
+        {% for t in toppings %}
+
+        <p>-- {{ t.topping_name}} </p>
+
+        {% endfor %}
+
+    </ul>
+    <br><br>    
+    <ul>
+        {% for c in comments %}
+
+        <li> {{ e.text }} </li>
+
+        {% empty %}
+        <li> There are no comments for this pizza.</li>
+        {% endfor %}
+        
+    </ul>
+
+    <p><a href="{% url 'MainApp:comment' pizza.id %}">Add comment</a></p>
+</form>
+{% endblock content %}

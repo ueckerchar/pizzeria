@@ -13,4 +13,14 @@ class Pizza(models.Model):
 class Topping(models.Model):
     pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
     topping_name = models.CharField(max_length=50)
-    text = models.TextField()
+    
+
+    def __str__(self):
+        return self.topping_name
+
+class Comment(models.Model):
+    pizza = models.ForeignKey(Pizza, on_delete=models.CASCADE)
+    text = models.TextField(max_length=200)
+
+    def __str__(self):
+        return self.text
