@@ -12,14 +12,15 @@
         {% endfor %}
 
     </ul>
-    <br><br>    
+    <br><br> 
+    <p>Comments For {{pizza}} Pizza:</p>
+    <br>   
     <ul>
-        {% for c in comments %}
-
-        <li> {{ e.text }} </li>
+        {% for c in addcomment %}
+        <p>-- {{ c.text }} </p>
 
         {% empty %}
-        <li> There are no comments for this pizza.</li>
+        <p> There are no comments for this pizza.</p>
         {% endfor %}
         
     </ul>
