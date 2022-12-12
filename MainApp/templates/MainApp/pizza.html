@@ -1,7 +1,8 @@
 {% extends "MainApp/base.html" %}
+{% load static %}
 
 {% block content %}
-
+<link rel="stylesheet" href="{% static 'newpformat.css' %}">
 <p>Pizza: {{ pizza }} </p>
 <form method="POST">
     <ul>
@@ -10,8 +11,18 @@
         <p>-- {{ t.topping_name}} </p>
 
         {% endfor %}
-
+    <br>
     </ul>
+    <ul>
+        {% for i in image %}
+        <div class="col-md-4">
+            <img src="{{ i.image.url }}" class="img-responsive" style="width: 30%; margin-right: 5px;" />
+        </div>
+        {% empty %}
+        <p>No picture is given for {{pizza}}.</p>
+        {% endfor %}
+    </ul>
+    
     <br><br> 
     <p>Comments For {{pizza}} Pizza:</p>
     <br>   

@@ -17,7 +17,9 @@ def pizza(request, pizza_id):
     p = Pizza.objects.get(id=pizza_id)
     toppings = Topping.objects.filter(pizza=p)
     addcomment = Comment.objects.filter(pizza=pizza_id)
-    context = {'pizza':p, 'toppings':toppings, 'addcomment':addcomment}
+
+    image = Image.objects.filter(pizza=pizza_id)
+    context = {'pizza':p, 'toppings':toppings, 'addcomment':addcomment, 'image':image}
     return render(request, 'MainApp/pizza.html', context)
 
 def comment(request, pizza_id):
@@ -30,7 +32,6 @@ def comment(request, pizza_id):
             comment=form.save(commit=False)
             comment.pizza = pizza
             comment.save()
-
             return redirect('MainApp:pizza',pizza_id=pizza_id)
 
     context = {'form':form,'pizza':pizza}
