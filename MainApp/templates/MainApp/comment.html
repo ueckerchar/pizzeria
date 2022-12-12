@@ -1,7 +1,8 @@
 {% extends "MainApp/base.html" %}
+{% load static %}
 
 {% block content %}
-
+<link rel="stylesheet" href="{% static 'newpformat.css' %}">
 <p><a href= "{% url 'MainApp:pizza' pizza.id %}">{{pizza}}</a></p>
 
 <p>Add a comment:</p>
