@@ -2,8 +2,14 @@
 
 {% block content %}
 
-<p>CSU Pizza</p>
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'format.css' %}">
+
+<h1><p>CSU Pizza</p></h1>
 
 <p> Char is the name, pizza is the game. Come by for a delicious pizza pie today! </p>
+
+<img src="{% static 'IMG_3910x.JPG' %}" style="max-height:450px">
 
 {% endblock content %}
